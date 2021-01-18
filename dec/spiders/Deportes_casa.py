@@ -28,12 +28,10 @@ class Producto(Item):
 
 
 class decSpider(Spider):
-    name = "DESCUENTOS_mujer"
+    name = "Deportes_casa"
     start_urls = [
-        # Descuentos mujer:
-        'https://www.decathlon.es/es/descuentos/ofertas-ropa-mujer/_/N-axmyeeZli2pim?Ndrc=5',
-        'https://www.decathlon.es/es/descuentos/ofertas-ropa-mujer/product-gender-mujer/onsale-1/_/N-li2pimZaxmyee?Ns=sku.discountRate%7C1%7C%7Csku.availability%7C1',
-        'https://www.decathlon.es/es/descuentos/ofertas-ropa-mujer/product-gender-mujer/onsale-1/_/N-li2pimZaxmyee?Ns=product.averageRating%7C1%7C%7Csku.availability%7C1'
+        # Deportes en casa:
+        'https://www.decathlon.es/es/browse/c0-shops/c1-haz-deporte-en-casa/_/N-hcqoka?Ndrc=100'
     ]
 
     def parse(self, response):
@@ -77,11 +75,11 @@ class decSpider(Spider):
 
             yield item.load_item()
         # Paginacion con el botón más productos:
-        # boton_next = response.css('button .btn-see-more-product').extract_first()
-        # if boton_next:
-        #     boton_next = response.urljoin(boton_next)
-        #     #ahora repetir el proceso en la nueva url con la funcion parse
-        #     yield scrapy.Request(url=boton_next, callback=self.parse)
+        boton_next = response.css('button #more_product_a').extract_first()
+        if boton_next:
+            boton_next = response.urljoin(boton_next)
+            # ahora repetir el proceso en la nueva url con la funcion parse
+            yield scrapy.Request(url=boton_next, callback=self.parse)
 
 
 # correr el programa en consola:

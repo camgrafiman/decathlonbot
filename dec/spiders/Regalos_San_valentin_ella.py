@@ -28,10 +28,10 @@ class Producto(Item):
 
 
 class decSpider(Spider):
-    name = "Regalos_San_valentin"
+    name = "Regalos_San_valentin_ella"
     start_urls = [
-        # Regalos san valentin:
-        'https://www.decathlon.es/es/browse/c0-shops/c1-regalos-san-valentin/_/N-1vd55rq'
+        # Regalos san valentin ella:
+        'https://www.decathlon.es/es/browse/c0-mujer/c1-regalos-para-mujer/_/N-1fta1r6'
     ]
 
     def parse(self, response):

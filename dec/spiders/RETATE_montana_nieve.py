@@ -28,10 +28,10 @@ class Producto(Item):
 
 
 class decSpider(Spider):
-    name = "RETATE_Hombre"
+    name = "RETATE_montana_nieve"
     start_urls = [
-        # Regalos san valentin:
-        'https://www.decathlon.es/es/browse/c0-shops/c1-vuelta-al-deporte/c2-hombre/_/N-lrmdua'
+        # Retate montaña y nieve:
+        'https://www.decathlon.es/es/landing/vuelta-al-deporte-montana-y-nieve/_/R-a-vuelta-al-deporte-montana-y-nieve?Ndrc=100'
     ]
 
     def parse(self, response):
